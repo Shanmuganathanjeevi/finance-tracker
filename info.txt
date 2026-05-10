@@ -1,0 +1,35 @@
+Creating new postgres user:
+
+# Connect to PostgreSQL with your existing user
+psql -U postgres
+
+# In PostgreSQL prompt, create new user and database
+CREATE USER finance_user WITH PASSWORD 'finance_with_shan';
+ALTER ROLE finance_user CREATEDB;
+
+# Grant permissions on finance-tracker database
+GRANT ALL PRIVILEGES ON DATABASE finance_tracker TO finance_user;
+
+# Exit PostgreSQL
+\q
+
+(done using beekeeper studio)
+
+echo DATABASE_URL=postgresql://finance_user:finance_with_shan@localhost:5432/finance-tracker > .env
+
+Remove-Item .env
+"DATABASE_URL=postgresql://finance_user:finance_with_shan@localhost:5432/finance-tracker" | Out-File -Encoding UTF8 .env
+
+
+https://github.com/Shanmuganathanjeevi/finance-tracker.git
+
+# Add files
+git add .
+git commit -m "Initial commit: Finance Tracker API with PostgreSQL"
+
+# Create remote (if not already done)
+git remote add origin https://github.com/Shanmuganathanjeevi/finance-tracker.git
+git branch -M main
+
+# Push to GitHub
+git push -u origin main
