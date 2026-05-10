@@ -22,3 +22,14 @@ Remove-Item .env
 
 
 https://github.com/Shanmuganathanjeevi/finance-tracker.git
+
+# Add files
+git add .
+git commit -m "Initial commit: Finance Tracker API with PostgreSQL"
+
+# Create remote (if not already done)
+git remote add origin https://github.com/Shanmuganathanjeevi/finance-tracker.git
+git branch -M main
+
+# Push to GitHub
+git push -u origin main
